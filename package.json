@@ -1,7 +1,7 @@
 {
   "name": "consec",
   "version": "1.0.1",
-  "description": "",
+  "description": "Consecutively iterate generator functions",
   "main": "consec.js",
   "scripts": {
     "test": "macchiato test"
@@ -15,6 +15,14 @@
   "bugs": {
     "url": "https://github.com/sonewman/consec.js/issues"
   },
+  "keywords": [
+    "generators",
+    "promises",
+    "koa",
+    "co",
+    "control-flow",
+    "async"
+  ],
   "homepage": "https://github.com/sonewman/consec.js#readme",
   "devDependencies": {
     "macchiato": "^3.0.0"

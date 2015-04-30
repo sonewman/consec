@@ -41,22 +41,20 @@ consec.call(ctx, gen, 'a', 'b', 'c')
 
 // if an error is throwm then the chain ends there
 var error = new Error()
-return consec(function * () {
+consec(function * () {
   throw error
-})
-.catch(function (err) {
+}).catch(function (err) {
   err // => error
 })
 
 //  if a promise is rejected then the chain ends there
 var error = new Error()
-return consec(function * () {
+consec(function * () {
   yield Promise.reject(error)
 
   // this is never reached
   return 'abc'
-})
-.catch(function (err) {
+}).catch(function (err) {
   err // => error
 })
   
@@ -64,7 +62,7 @@ return consec(function * () {
 function * g() {
   return yield Promise.resolve('abc')
 }
-return consec(function * () {
+consec(function * () {
   var a = yield * g()
   t.equals(a, 'abc')
 })
@@ -76,8 +74,7 @@ function * g(abc) {
 
 return consec(function * () {
   return yield consec(g, 'abc')
-})
-.then(function (res) {
+}).then(function (res) {
   res // => 'abc'
 })
 ```
