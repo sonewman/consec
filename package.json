@@ -1,0 +1,22 @@
+{
+  "name": "consec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "consec.js",
+  "scripts": {
+    "test": "macchiato test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sonewman/consec.js.git"
+  },
+  "author": "Sam Newman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonewman/consec.js/issues"
+  },
+  "homepage": "https://github.com/sonewman/consec.js#readme",
+  "devDependencies": {
+    "macchiato": "^3.0.0"
+  }
+}
