@@ -1,0 +1,22 @@
+{
+  "name": "gen-seq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "seq.js",
+  "scripts": {
+    "test": "macchiato test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sonewman/gen-seq.js.git"
+  },
+  "author": "Sam Newman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonewman/gen-seq.js/issues"
+  },
+  "homepage": "https://github.com/sonewman/gen-seq.js#readme",
+  "devDependencies": {
+    "macchiato": "^3.0.0"
+  }
+}
