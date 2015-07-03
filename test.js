@@ -87,3 +87,18 @@ desc('consec(function * () { })')
     t.equals(res, 'abc')
   })
 })
+.it('should take an iterator, returning resolved promises values', function (t) {
+  function * gen() {
+    var res1 = yield Promise.resolve('a')
+    t.equals(res1, 'a')
+    var res2 = yield Promise.resolve('b')
+    t.equals(res2, 'b')
+    var res3 = yield Promise.resolve('c')
+    t.equals(res3, 'c')
+    return yield Promise.resolve('blah')
+  }
+
+  return consec(gen()).then(function (res) {
+    t.equals(res, 'blah')
+  })
+})

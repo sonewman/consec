@@ -15,17 +15,21 @@ function isThenable(v) {
 }
 
 function consec(fn /*, arguments */) {
-  if ('function' !== typeof fn)
-    throw new TypeError('fn must be a generator function')
+  var isIterator = 'function' === typeof fn.next
+  if ('function' !== typeof fn && !isIterator)
+    throw new TypeError('fn must be a generator or iterable')
 
-  var ctx = this
-  var l = arguments.length
-  var args = new Array(l - 1)
-  for (var i = 1; i < l; i += 1)
-    args[i - 1] = arguments[i]
+  if (!isIterator) {
+    var ctx = this
+    var l = arguments.length
+    var args = new Array(l - 1)
+    for (var i = 1; i < l; i += 1)
+      args[i - 1] = arguments[i]
+  }
 
   return new Promise(function (resolve, reject) {
-    next(call_(fn, ctx, args))
+    if (isIterator) next(fn)
+    else next(call_(fn, ctx, args))
 
     function fail(err) {
       reject(err)
